@@ -18,7 +18,7 @@ legend{font-size: 1.5em;padding:10px 0;}
 button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;}
 button,input,label,select,textarea{display: inline-block;}
 label{line-height:2em;}
-input{padding: 10px;}
+input{padding: 0.45em;}
 button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;line-height:normal;padding:8px;}
 button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
 textarea{overflow:auto;vertical-align:top;resize:vertical;width:100%;}

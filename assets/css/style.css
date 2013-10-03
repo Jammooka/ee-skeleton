@@ -3,7 +3,7 @@ MAIN LAYOUT
 ******************************/
 body 
 {
-	font-size: 13px;
+	font-size: 0.8em;
 	letter-spacing: 0.05em;
 	position: relative;
 	-webkit-text-size-adjust: 100%;
@@ -40,29 +40,31 @@ a
 			border-color: #000000;
 		}
 	
-	a.button,
+	.button,
+	button,
 	input[type="submit"]
 	{
-		background: #9dd30d;
-		background: -webkit-linear-gradient(#9dd30d,  #00734a);
-		background: -moz-linear-gradient(#9dd30d,  #00734a);
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dd30d', endColorstr='#00734a');
-		background: linear-gradient(#9dd30d,  #00734a);
+		background-color: #BBBBBB;
+		background-image: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+		background-image: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+		background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5));
+		background-size: 100% 300%;
+		behavior: url(/assets/css/PIE.htc);
 		
 		-webkit-transition: background-position .2s ease-out;
 		-moz-transition: background-position .2s  ease-out;  
 		-o-transition: background-position .2s  ease-out;  
 		transition: background-position .2s  ease-out;
+		
+		color: #FFFFFF;
 		border-radius: 5px;
 		border: 0;
 		cursor: pointer;
-		behavior: url(/assets/css/PIE.htc);
 		position: relative;
-		background-size: 100% 300%;
-		color: #fff;
-		padding: 8px 10px;
+		padding: 7px 14px;
 	}
-		a.button:hover,
+		.button:hover,
+		button:hover,
 		input[type="submit"]:hover
 		{
 			background-position: 100%;
@@ -134,7 +136,10 @@ SECTIONS
 
 /*************************
 Header ******************/
-
+#header-main-menu.inner
+{
+	overflow: visible;
+}
 
 /*************************
 Index List **************/
@@ -174,21 +179,22 @@ Breadcrumbs *************/
 
 /*************************
 Slideshow ***************/
+.slide + .slide
+{
+	display: none;
+}
 
 #slideshow-arrows
 {
-	bottom: 40px;
+	bottom: 30px;
+	display: none;
 	position: absolute;
+	width: 100%;
 	z-index: 500;
 }
-	
-	.js #slideshow-arrows
-	{
-		display: none
-	}
 
-	#slideshow-prev,
-	#slideshow-next
+	.cycle-prev,
+	.cycle-next
 	{
 		background: url("/assets/images/slideshow/arrows.png") 0 no-repeat;
 		cursor: pointer;
@@ -197,35 +203,37 @@ Slideshow ***************/
 		width: 30px;
 		margin-left: 30px;
 	}
-		#slideshow-next
+		.cycle-next
 		{
 			float: right;
 			margin-right: 30px;
 			background-position: -30px;
 		}
 
-#slideshow-buttons-wrap
+.cycle-pager-wrap
 {
-	bottom: -10px;
+	bottom: 10px;
+	cursor: pointer;
+	display: none;
 	height: 20px;
 	left: 0;
 	position: absolute;
 	text-align: center;
 	width: 100%;
-	z-index: 50;
+	z-index: 1000;
 }
-	#slideshow-buttons
+	.cycle-pager
 	{
 		display: inline-block;
 	}
-		#slideshow-buttons a
+		.cycle-pager span
 		{
 			float: left;
 			height: 20px;
 			overflow: hidden;
 			position: relative;
 		}
-			.activeSlide img
+			.cycle-pager-active img
 			{
 				position: relative;
 				top: -22px;
@@ -320,7 +328,7 @@ Main Menu ****************/
 		float: left;
 	    display: block;
 		text-decoration: none;
-		padding: 5px 7px;
+		padding: 5px 8px;
 	}
 		#header-main-menu li ul
 		{
@@ -356,27 +364,22 @@ Footer Menu **************/
 #footer li
 {
     float: left;
-	margin: 5px 10px 0px 0px;
-	padding: 0px 10px 0px 0px;
-	height: 12px;
 }
-
 	#footer li a
 	{
         display: block;
 		text-decoration: none;
-		margin: -4px 0px 0px 0px;
+		padding: 0px 10px;
 	}
-
-	#footer li a:hover, #footer li.current a
-	{
-		text-decoration: underline;
-	}
-	
-		#footer li ul
+		#footer li a:hover,
+		#footer li.current a
 		{
-			display: none;
+			text-decoration: underline;
 		}
+	#footer li ul
+	{
+		display: none;
+	}
 
 /******************************
 MEDIA QUERY OVERRIDES
@@ -393,7 +396,7 @@ Desktop Only *************/
 Up to Tablet *************/
 @media ( max-width : 768px )
 {
-	#header-main-menu > ul	{	display: block !important;	}
+	
 }
 
 /**************************
@@ -407,41 +410,7 @@ Tablet and up ************/
 Up to Landscape Phone ****/
 @media ( max-width : 580px )
 {
-	#header-main-menu
-	{
-		display: none;
-		position: fixed;
-		right: 2%;
-		top: 45px;
-		width: auto;
-		z-index: 500;
-	}
-		#header-main-menu ul
-		{
-			background: #f3f3f3;
-			display: none;
-			overflow: hidden;
-			width: 150px;
-		}
-			#header-main-menu li a
-			{
-				border-bottom: 1px dotted #cfcfcf;
-				float: left;
-				padding: 5px;
-				width: 150px;
-			}
-				#header-main-menu li ul
-				{
-					display: block;
-					position: static;
-				}
-					#header-main-menu li li a,
-					#header-main-menu li:hover li a
-					{
-						border: 0;
-						font-size: 0.85em;
-						padding: 4px 2px 4px 15px;
-					}
+	
 }
 
 /**************************

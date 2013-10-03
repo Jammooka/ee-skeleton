@@ -47,10 +47,11 @@
 		</div>
 		
 		<div id="header-main-menu" class="left twelvecol">
-			<a href="#" title="Display the menu" id="menu-toggle" class="button right">Menu</a>
-			{exp:taxonomy:nav tree_id="1" display_root="no"}
-				<a href="{node_url}" title="{node_title}">{node_title}</a> 
-			{/exp:taxonomy:nav}
+			<div id="header-main-menu-inner" class="inner">
+				{exp:taxonomy:nav tree_id="1" display_root="no"}
+					<a href="{node_url}" title="{node_title}">{node_title}</a> 
+				{/exp:taxonomy:nav}
+			</div>
 		</div>
 		
 	</div>
